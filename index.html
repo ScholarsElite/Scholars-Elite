@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Scholars Elite — Tutor Portal</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -234,10 +234,7 @@ var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 var currentTutor=null;
 var sb=null;
 
-var sbScript=document.createElement('script');
-sbScript.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-sbScript.onload=function(){sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);};
-document.head.appendChild(sbScript);
+sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 
 function switchTab(tab,btn){
   document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('active');});
@@ -256,7 +253,7 @@ async function tutorLogin(){
   var btn=document.getElementById('login-btn');
   errEl.classList.remove('show');
   if(!email){errEl.textContent='Please enter your email.';errEl.classList.add('show');return;}
-  if(!sb){errEl.textContent='Still loading, please try again in a moment.';errEl.classList.add('show');return;}
+  if(!sb){errEl.textContent='Connection error. Please refresh the page and try again.';errEl.classList.add('show');return;}
   btn.disabled=true;btn.textContent='Checking...';
   try{
     var res=await sb.from('tutors').select('*').ilike('email',email);
