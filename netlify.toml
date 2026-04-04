@@ -1,0 +1,10 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = ""
+
+[template.environment]
+  EMAIL_OBFUSCATION = "none"
