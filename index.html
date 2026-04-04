@@ -248,15 +248,24 @@ function showView(id){
 }
 
 async function tutorLogin(){
+  console.log('tutorLogin called');
   var email=document.getElementById('login-email').value.trim().toLowerCase();
   var errEl=document.getElementById('login-error');
   var btn=document.getElementById('login-btn');
   errEl.classList.remove('show');
   if(!email){errEl.textContent='Please enter your email.';errEl.classList.add('show');return;}
-  if(!sb){errEl.textContent='Connection error. Please refresh the page and try again.';errEl.classList.add('show');return;}
+  console.log('sb value:', sb);
+  if(!sb){
+    errEl.textContent='Connection error. Please refresh the page and try again.';
+    errEl.classList.add('show');
+    console.error('Supabase not initialised');
+    return;
+  }
   btn.disabled=true;btn.textContent='Checking...';
   try{
+    console.log('Querying Supabase for:', email);
     var res=await sb.from('tutors').select('*').ilike('email',email);
+    console.log('Supabase response:', res);
     if(res.error)throw new Error(res.error.message);
     if(!res.data||res.data.length===0){
       errEl.textContent='No tutor found with that email. Please check and try again.';
@@ -270,6 +279,7 @@ async function tutorLogin(){
     document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
     showView('view-tutor-form');
   }catch(e){
+    console.error('Login error:', e);
     errEl.textContent='Error: '+e.message;
     errEl.classList.add('show');
   }
