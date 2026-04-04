@@ -35,6 +35,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .field select { cursor: pointer; }
 .btn-primary { width: 100%; padding: 12px; background: var(--navy); color: var(--white); border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.18s; margin-top: 0.5rem; }
 .btn-primary:hover { background: var(--navy-mid); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
 .error-msg { background: var(--red-pale); color: var(--red); border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 1rem; display: none; }
 .error-msg.show { display: block; }
 .form-wrap { max-width: 640px; margin: 2.5rem auto; padding: 0 1.5rem; }
@@ -48,60 +49,16 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 .form-note { font-size: 12px; color: var(--text-soft); }
 .btn-submit { padding: 11px 28px; background: var(--navy); color: var(--white); border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
 .btn-submit:hover { background: var(--navy-mid); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .success-bar { background: var(--green-pale); border: 1px solid #a5d4be; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--green); font-weight: 500; display: none; margin-bottom: 1.25rem; }
 .success-bar.show { display: block; }
 .tutor-badge { display: flex; align-items: center; justify-content: space-between; background: var(--gold-pale); border: 1px solid #f0d090; border-radius: 10px; padding: 10px 14px; margin-bottom: 1.5rem; }
 .tutor-badge-name { font-size: 13px; font-weight: 600; color: var(--navy); }
 .tutor-badge-label { font-size: 11px; color: var(--amber); }
 .btn-logout { font-size: 12px; color: var(--text-soft); background: none; border: none; cursor: pointer; text-decoration: underline; }
-.dash-wrap { max-width: 880px; margin: 2.5rem auto; padding: 0 1.5rem; }
-.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 1.75rem; }
-.stat-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.5rem; }
-.stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--navy); }
-.stat-label { font-size: 11px; color: var(--text-soft); margin-top: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; }
-.filter-row { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.filter-btn { padding: 6px 16px; border: 1.5px solid var(--border); background: var(--white); border-radius: 999px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--text-mid); cursor: pointer; transition: all 0.15s; }
-.filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
-.summary-list { display: flex; flex-direction: column; gap: 14px; }
-.summary-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-.sc-head { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); background: var(--cream); }
-.sc-student { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--navy); }
-.sc-meta { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
-.badge { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 999px; letter-spacing: 0.04em; text-transform: uppercase; }
-.badge-pending { background: var(--amber-pale); color: var(--amber); }
-.badge-sent { background: var(--green-pale); color: var(--green); }
-.sc-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 10px; }
-.sc-field-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 3px; }
-.sc-field-val { font-size: 13.5px; color: var(--text-main); line-height: 1.55; }
-.sc-actions { display: flex; gap: 8px; padding: 1rem 1.5rem; border-top: 1px solid var(--border); background: #fafbfc; flex-wrap: wrap; }
-.act-btn { padding: 8px 16px; border-radius: 9px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
-.act-approve { background: var(--navy); color: var(--white); border: none; flex: 2; min-width: 160px; }
-.act-approve:hover { background: var(--navy-mid); }
-.act-discard { background: var(--white); color: var(--red); border: 1.5px solid #f5c0bb; flex: 1; }
-.act-discard:hover { background: var(--red-pale); }
-.empty-state { text-align: center; padding: 4rem 2rem; color: var(--text-soft); font-size: 14px; }
-.loading { text-align: center; padding: 2rem; color: var(--text-soft); font-size: 14px; }
-.debug-box { background: #1a1a2e; color: #00ff88; font-family: monospace; font-size: 11px; padding: 12px 16px; border-radius: 8px; margin-bottom: 1rem; white-space: pre-wrap; display: none; max-height: 150px; overflow-y: auto; }
-.debug-box.show { display: block; }
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,27,45,0.55); z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
-.modal-overlay.open { display: flex; }
-.modal { background: var(--white); border-radius: 18px; width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto; }
-.modal-top { padding: 1.5rem 2rem 1rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.modal-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--navy); }
-.modal-sub { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
-.modal-close { width: 32px; height: 32px; border: 1.5px solid var(--border); border-radius: 8px; background: transparent; font-size: 16px; color: var(--text-mid); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-.modal-close:hover { background: var(--cream); }
-.email-preview { margin: 1.5rem 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-size: 13.5px; line-height: 1.65; }
-.email-header-bar { background: var(--navy); padding: 1rem 1.5rem; color: var(--white); font-size: 12px; line-height: 1.8; }
-.email-header-bar strong { color: var(--gold); }
-.email-body { padding: 1.5rem; background: var(--cream); color: var(--text-main); white-space: pre-line; }
-.modal-actions { display: flex; gap: 10px; padding: 1rem 2rem 1.5rem; }
-.modal-send { flex: 2; padding: 11px 0; background: var(--navy); color: var(--white); border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
-.modal-send:disabled { opacity: 0.6; cursor: not-allowed; }
-.modal-cancel { flex: 1; padding: 11px 0; background: transparent; color: var(--text-mid); border: 1.5px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
 .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--navy); color: var(--white); font-size: 13px; font-weight: 500; padding: 11px 22px; border-radius: 999px; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1); z-index: 999; white-space: nowrap; pointer-events: none; }
 .toast.show { transform: translateX(-50%) translateY(0); }
-@media (max-width: 580px) { .row2 { grid-template-columns: 1fr; } .stats-row { grid-template-columns: 1fr 1fr; } .form-footer { flex-direction: column; align-items: stretch; } }
+@media (max-width: 580px) { .row2 { grid-template-columns: 1fr; } .form-footer { flex-direction: column; align-items: stretch; } }
 </style>
 </head>
 <body>
@@ -109,25 +66,27 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   <div class="logo">Scholars <span>Elite</span></div>
   <div class="tabs">
     <button class="tab active" onclick="switchTab('tutor',this)">Tutor portal</button>
-    <button class="tab" onclick="switchTab('owner',this)">Owner dashboard</button>
+    <button class="tab" onclick="switchTab('owner',this)">Owner login</button>
   </div>
 </div>
 
+<!-- TUTOR LOGIN -->
 <div class="view active" id="view-tutor-login">
   <div class="login-wrap"><div class="login-card">
     <div class="login-title">Tutor login</div>
     <div class="login-sub">Enter your email to access your session summary form.</div>
     <div class="error-msg" id="login-error"></div>
     <div class="field"><label>Your email address</label><input type="email" id="login-email" placeholder="your@email.com" onkeydown="if(event.key==='Enter')tutorLogin()"/></div>
-    <button class="btn-primary" onclick="tutorLogin()">Continue →</button>
+    <button class="btn-primary" id="login-btn" onclick="tutorLogin()">Continue →</button>
   </div></div>
 </div>
 
+<!-- TUTOR FORM -->
 <div class="view" id="view-tutor-form">
   <div class="form-wrap">
     <div class="page-title">Session summary</div>
     <div class="page-sub">Select your student and fill in today's session details.</div>
-    <div class="success-bar" id="success-bar">✓ Summary submitted! It will be reviewed and sent to the parent shortly.</div>
+    <div class="success-bar" id="success-bar">✓ Summary submitted! Your owner will review and send it to the parent shortly.</div>
     <div class="tutor-badge">
       <div><div class="tutor-badge-label">Logged in as</div><div class="tutor-badge-name" id="tutor-display-name">—</div></div>
       <button class="btn-logout" onclick="tutorLogout()">Log out</button>
@@ -147,287 +106,182 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
         <div class="field"><label>Homework assigned</label><textarea id="f-homework" rows="2" placeholder="e.g. Textbook p.45 exercises 1–10"></textarea></div>
       </div>
       <div class="form-footer">
-        <p class="form-note">The owner reviews this before it reaches the parent.</p>
-        <button class="btn-submit" onclick="submitSummary()">Submit for review →</button>
+        <p class="form-note">Your owner reviews this before it reaches the parent.</p>
+        <button class="btn-submit" id="submit-btn" onclick="submitSummary()">Submit for review →</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="view" id="view-owner-login">
+<!-- OWNER INFO -->
+<div class="view" id="view-owner-info">
   <div class="login-wrap"><div class="login-card">
-    <div class="login-title">Owner login</div>
-    <div class="login-sub">Enter your password to access the review dashboard.</div>
-    <div class="error-msg" id="owner-login-error">Incorrect password. Please try again.</div>
-    <div class="field"><label>Password</label><input type="password" id="owner-password" placeholder="Enter password" onkeydown="if(event.key==='Enter')ownerLogin()"/></div>
-    <button class="btn-primary" onclick="ownerLogin()">Enter dashboard →</button>
+    <div class="login-title">Owner approvals</div>
+    <div class="login-sub" style="font-size:14px;line-height:1.7;">
+      When a tutor submits a summary you'll receive an email at <strong>contact@scholarselite.com.au</strong> with the full summary preview.<br><br>
+      Simply tap <strong>"Approve & Send"</strong> in that email and it will be sent straight to the parent — no login needed!
+    </div>
   </div></div>
 </div>
 
-<div class="view" id="view-owner-dash">
-  <div class="dash-wrap">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.75rem;flex-wrap:wrap;gap:1rem;">
-      <div><div class="page-title">Review summaries</div><div class="page-sub" style="margin-bottom:0">Approve each summary to send the email to the parent.</div></div>
-      <button class="btn-logout" onclick="ownerLogout()">Log out</button>
-    </div>
-    <div class="stats-row">
-      <div class="stat-card"><div class="stat-num" id="stat-pending">—</div><div class="stat-label">Awaiting review</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-sent">—</div><div class="stat-label">Sent</div></div>
-      <div class="stat-card"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Total</div></div>
-    </div>
-    <div class="filter-row">
-      <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-      <button class="filter-btn" onclick="setFilter('pending',this)">Pending</button>
-      <button class="filter-btn" onclick="setFilter('sent',this)">Sent</button>
-    </div>
-    <div class="debug-box" id="debug-box"></div>
-    <div class="summary-list" id="summary-list"><div class="loading">Loading summaries...</div></div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <div class="modal-top">
-      <div><div class="modal-title">Email preview</div><div class="modal-sub" id="modal-sub"></div></div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="email-preview">
-      <div class="email-header-bar">
-        <div>To: <strong id="ep-to"></strong></div>
-        <div>From: <strong>contact@scholarselite.com.au</strong></div>
-        <div>Subject: <strong id="ep-subject"></strong></div>
-      </div>
-      <div class="email-body" id="ep-body"></div>
-    </div>
-    <div class="modal-actions">
-      <button class="modal-send" id="modal-send-btn" onclick="confirmSend()">Send this email →</button>
-      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
-    </div>
-  </div>
-</div>
 <div class="toast" id="toast"></div>
 
 <script>
 var SUPABASE_URL='https://ikmzwhlexgqucjlrlqwq.supabase.co';
 var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlrbXp3aGxleGdxdWNqbHJscXdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyMDE3NzksImV4cCI6MjA5MDc3Nzc3OX0.jIH3H-q7zILJRg33FNQe3Dx9Ua8CfAUbXX4G-wOWE7Q';
-var EMAILJS_SERVICE_ID='service_7c5gniz';
-var EMAILJS_TEMPLATE_ID='template_tsmgs6j';
-var EMAILJS_PUBLIC_KEY='b4HM8442dPD9A0ebF';
-var OWNER_PASSWORD='scholars2024';
 
-var currentTutor=null,currentFilter='all',pendingApproveId=null,allSummaries=[];
+var currentTutor = null;
+var sb = null;
 
-function debug(msg){
-  var box=document.getElementById('debug-box');
-  box.classList.add('show');
-  box.textContent+='\n'+msg;
-  box.scrollTop=box.scrollHeight;
-}
-
-// Load Supabase and EmailJS dynamically
-var sbScript=document.createElement('script');
-sbScript.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-sbScript.onload=function(){
-  var ejScript=document.createElement('script');
-  ejScript.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-  ejScript.onload=function(){
-    window.sb=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-    console.log('Libraries loaded OK');
-  };
-  document.head.appendChild(ejScript);
+var sbScript = document.createElement('script');
+sbScript.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+sbScript.onload = function() {
+  sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 };
 document.head.appendChild(sbScript);
 
-function switchTab(tab,btn){
-  document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('active');});
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
   btn.classList.add('active');
-  if(tab==='tutor'){if(currentTutor)showView('view-tutor-form');else showView('view-tutor-login');}
-  else{if(sessionStorage.getItem('ownerIn')){showView('view-owner-dash');loadSummaries();}else showView('view-owner-login');}
-}
-function showView(id){document.querySelectorAll('.view').forEach(function(el){el.classList.remove('active');});document.getElementById(id).classList.add('active');}
-
-async function tutorLogin(){
-  var email=document.getElementById('login-email').value.trim().toLowerCase();
-  var errEl=document.getElementById('login-error');
-  errEl.classList.remove('show');
-  if(!email){errEl.textContent='Please enter your email.';errEl.classList.add('show');return;}
-  if(!window.sb){errEl.textContent='Still loading, please try again in a moment.';errEl.classList.add('show');return;}
-  try{
-    var res=await window.sb.from('tutors').select('*').ilike('email',email);
-    if(res.error)throw new Error(res.error.message);
-    if(!res.data||res.data.length===0){errEl.textContent='No tutor found with that email. Please check and try again.';errEl.classList.add('show');return;}
-    currentTutor=res.data[0];
-    document.getElementById('tutor-display-name').textContent=currentTutor.name;
-    await loadStudentsForTutor(currentTutor.id);
-    document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
-    showView('view-tutor-form');
-  }catch(e){errEl.textContent='Error: '+e.message;errEl.classList.add('show');}
-}
-function tutorLogout(){currentTutor=null;document.getElementById('login-email').value='';showView('view-tutor-login');}
-
-async function loadStudentsForTutor(tutorId){
-  var res=await window.sb.from('tutor_students').select('student_id,students(id,name)').eq('tutor_id',tutorId);
-  var sel=document.getElementById('f-student');
-  sel.innerHTML='<option value="">Select student...</option>';
-  if(res.data&&res.data.length){res.data.forEach(function(row){if(row.students){var o=document.createElement('option');o.value=row.students.id;o.textContent=row.students.name;sel.appendChild(o);}});}
-}
-
-async function submitSummary(){
-  var studentId=document.getElementById('f-student').value;
-  var date=document.getElementById('f-date').value;
-  var topics=document.getElementById('f-topics').value.trim();
-  var progress=document.getElementById('f-progress').value.trim();
-  var homework=document.getElementById('f-homework').value.trim();
-  if(!studentId||!date||!topics||!progress){showToast('Please fill in all required fields');return;}
-  var res=await window.sb.from('summaries').insert({tutor_id:currentTutor.id,student_id:studentId,session_date:date,topics:topics,progress:progress,homework:homework,status:'pending'});
-  if(res.error){showToast('Error: '+res.error.message);return;}
-  document.getElementById('f-student').value='';
-  document.getElementById('f-topics').value='';
-  document.getElementById('f-progress').value='';
-  document.getElementById('f-homework').value='';
-  var bar=document.getElementById('success-bar');bar.classList.add('show');setTimeout(function(){bar.classList.remove('show');},5000);
-  showToast('Summary submitted for review!');
-}
-
-function ownerLogin(){
-  var pw=document.getElementById('owner-password').value;
-  var errEl=document.getElementById('owner-login-error');
-  errEl.classList.remove('show');
-  if(pw===OWNER_PASSWORD){
-    sessionStorage.setItem('ownerIn','1');
-    showView('view-owner-dash');
-    setTimeout(function(){loadSummaries();},500);
+  if (tab === 'tutor') {
+    if (currentTutor) showView('view-tutor-form');
+    else showView('view-tutor-login');
   } else {
+    showView('view-owner-info');
+  }
+}
+
+function showView(id) {
+  document.querySelectorAll('.view').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+}
+
+async function tutorLogin() {
+  var email = document.getElementById('login-email').value.trim().toLowerCase();
+  var errEl = document.getElementById('login-error');
+  var btn = document.getElementById('login-btn');
+  errEl.classList.remove('show');
+  if (!email) { errEl.textContent = 'Please enter your email.'; errEl.classList.add('show'); return; }
+  if (!sb) { errEl.textContent = 'Still loading, please try again in a moment.'; errEl.classList.add('show'); return; }
+  btn.disabled = true;
+  btn.textContent = 'Checking...';
+  try {
+    var res = await sb.from('tutors').select('*').ilike('email', email);
+    if (res.error) throw new Error(res.error.message);
+    if (!res.data || res.data.length === 0) {
+      errEl.textContent = 'No tutor found with that email. Please check and try again.';
+      errEl.classList.add('show');
+      btn.disabled = false;
+      btn.textContent = 'Continue →';
+      return;
+    }
+    currentTutor = res.data[0];
+    document.getElementById('tutor-display-name').textContent = currentTutor.name;
+    await loadStudentsForTutor(currentTutor.id);
+    document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+    showView('view-tutor-form');
+  } catch(e) {
+    errEl.textContent = 'Error: ' + e.message;
     errEl.classList.add('show');
   }
+  btn.disabled = false;
+  btn.textContent = 'Continue →';
 }
-function ownerLogout(){sessionStorage.removeItem('ownerIn');document.getElementById('owner-password').value='';showView('view-owner-login');}
 
-async function loadSummaries(){
-  var list=document.getElementById('summary-list');
-  list.innerHTML='<div class="loading">Loading summaries...</div>';
-  
-  if(!window.sb){
-    list.innerHTML='<div class="loading">Still connecting, retrying...</div>';
-    setTimeout(loadSummaries,1000);
-    return;
-  }
+function tutorLogout() {
+  currentTutor = null;
+  document.getElementById('login-email').value = '';
+  showView('view-tutor-login');
+}
 
-  debug('Fetching summaries...');
-  
-  try{
-    // First try a simple query
-    var simple=await window.sb.from('summaries').select('*');
-    debug('Simple query result: '+(simple.data?simple.data.length+' rows':'error: '+JSON.stringify(simple.error)));
-    
-    if(simple.error){
-      list.innerHTML='<div class="empty-state">Error: '+simple.error.message+'</div>';
-      return;
-    }
-
-    if(!simple.data||simple.data.length===0){
-      list.innerHTML='<div class="empty-state">No summaries yet. Have a tutor submit one first!</div>';
-      document.getElementById('stat-pending').textContent='0';
-      document.getElementById('stat-sent').textContent='0';
-      document.getElementById('stat-total').textContent='0';
-      return;
-    }
-
-    // Now try with joins
-    var res=await window.sb.from('summaries').select('*,tutors(name),students(name,parent_email,parent_name)').order('session_date',{ascending:false});
-    debug('Join query: '+(res.data?res.data.length+' rows':'error: '+JSON.stringify(res.error)));
-    
-    if(res.error){
-      // Fall back to simple data
-      allSummaries=simple.data;
-    } else {
-      allSummaries=res.data||[];
-    }
-    renderSummaries();
-  } catch(e){
-    debug('Exception: '+e.message);
-    list.innerHTML='<div class="empty-state">Error loading: '+e.message+'</div>';
+async function loadStudentsForTutor(tutorId) {
+  var res = await sb.from('tutor_students').select('student_id,students(id,name)').eq('tutor_id', tutorId);
+  var sel = document.getElementById('f-student');
+  sel.innerHTML = '<option value="">Select student...</option>';
+  if (res.data && res.data.length) {
+    res.data.forEach(function(row) {
+      if (row.students) {
+        var o = document.createElement('option');
+        o.value = row.students.id;
+        o.textContent = row.students.name;
+        sel.appendChild(o);
+      }
+    });
   }
 }
 
-function setFilter(f,btn){currentFilter=f;document.querySelectorAll('.filter-btn').forEach(function(el){el.classList.remove('active');});btn.classList.add('active');renderSummaries();}
+async function submitSummary() {
+  var studentId = document.getElementById('f-student').value;
+  var date = document.getElementById('f-date').value;
+  var topics = document.getElementById('f-topics').value.trim();
+  var progress = document.getElementById('f-progress').value.trim();
+  var homework = document.getElementById('f-homework').value.trim();
+  if (!studentId || !date || !topics || !progress) { showToast('Please fill in all required fields'); return; }
 
-function renderSummaries(){
-  var pending=allSummaries.filter(function(s){return s.status==='pending';}).length;
-  var sent=allSummaries.filter(function(s){return s.status==='sent';}).length;
-  document.getElementById('stat-pending').textContent=pending;
-  document.getElementById('stat-sent').textContent=sent;
-  document.getElementById('stat-total').textContent=allSummaries.length;
-  var filtered=allSummaries.filter(function(s){return currentFilter==='all'||s.status===currentFilter;});
-  var list=document.getElementById('summary-list');
-  if(!filtered.length){list.innerHTML='<div class="empty-state">No summaries here yet.</div>';return;}
-  list.innerHTML=filtered.map(function(s){
-    var sn=s.students?s.students.name:(s.student_id?'Student '+s.student_id.substring(0,6):'Unknown');
-    var tn=s.tutors?s.tutors.name:(s.tutor_id?'Tutor '+s.tutor_id.substring(0,6):'Unknown');
-    var d=s.session_date?new Date(s.session_date+'T12:00:00').toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'long',year:'numeric'}):'';
-    var ip=s.status==='pending';
-    return '<div class="summary-card"><div class="sc-head"><div><div class="sc-student">'+sn+'</div><div class="sc-meta">'+d+' &nbsp;·&nbsp; '+tn+'</div></div><span class="badge '+(ip?'badge-pending':'badge-sent')+'">'+(ip?'Pending':'Sent')+'</span></div>'+
-    '<div class="sc-body"><div><div class="sc-field-label">Topics covered</div><div class="sc-field-val">'+(s.topics||'—')+'</div></div>'+
-    '<div><div class="sc-field-label">Progress notes</div><div class="sc-field-val">'+(s.progress||'—')+'</div></div>'+
-    (s.homework?'<div><div class="sc-field-label">Homework assigned</div><div class="sc-field-val">'+s.homework+'</div></div>':'')+
-    '</div>'+(ip?'<div class="sc-actions"><button class="act-btn act-approve" onclick="openModal(\''+s.id+'\')">Preview &amp; send email →</button><button class="act-btn act-discard" onclick="discardSummary(\''+s.id+'\')">Discard</button></div>':'')+
-    '</div>';
-  }).join('');
-}
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
 
-function openModal(id){
-  var s=allSummaries.find(function(x){return x.id===id;});
-  if(!s)return;
-  pendingApproveId=id;
-  var sn=s.students?s.students.name:'Student';
-  var pn=s.students?(s.students.parent_name||'Parent'):'Parent';
-  var tn=s.tutors?s.tutors.name:'Tutor';
-  var pe=s.students?s.students.parent_email:'contact@scholarselite.com.au';
-  var d=s.session_date?new Date(s.session_date+'T12:00:00').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'}):'';
-  document.getElementById('modal-sub').textContent='Sending to: '+pe;
-  document.getElementById('ep-to').textContent=pe;
-  document.getElementById('ep-subject').textContent='Session Summary for '+sn+' — '+d;
-  document.getElementById('ep-body').textContent='Hey '+pn+',\n\nPlease find below the session summary for '+sn+' on '+d+', conducted by '+tn+'.\n\nTopics Covered:\n'+(s.topics||'—')+'\n\nStudent Progress:\n'+(s.progress||'—')+'\n\n'+(s.homework?'Homework Assigned:\n'+s.homework+'\n\n':'')+'Warm regards,\nScholars Elite Tuition\ncontact@scholarselite.com.au';
-  document.getElementById('modal-send-btn').disabled=false;
-  document.getElementById('modal-send-btn').textContent='Send this email →';
-  document.getElementById('modal').classList.add('open');
-}
-function closeModal(){document.getElementById('modal').classList.remove('open');pendingApproveId=null;}
+  try {
+    // Save to Supabase
+    var res = await sb.from('summaries').insert({
+      tutor_id: currentTutor.id,
+      student_id: studentId,
+      session_date: date,
+      topics: topics,
+      progress: progress,
+      homework: homework,
+      status: 'pending'
+    }).select('*,tutors(name),students(name,parent_email,parent_name)').single();
 
-async function confirmSend(){
-  if(!pendingApproveId)return;
-  var s=allSummaries.find(function(x){return x.id===pendingApproveId;});
-  if(!s)return;
-  var btn=document.getElementById('modal-send-btn');
-  btn.disabled=true;btn.textContent='Sending...';
-  var sn=s.students?s.students.name:'Student';
-  var pn=s.students?(s.students.parent_name||'Parent'):'Parent';
-  var tn=s.tutors?s.tutors.name:'Tutor';
-  var pe=s.students?s.students.parent_email:'contact@scholarselite.com.au';
-  var d=s.session_date?new Date(s.session_date+'T12:00:00').toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'}):'';
-  try{
-    await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:pe,parent_name:pn,student_name:sn,tutor_name:tn,session_date:d,topics:s.topics||'—',progress:s.progress||'—',homework:s.homework||'No homework assigned'});
-    await window.sb.from('summaries').update({status:'sent'}).eq('id',pendingApproveId);
-    var idx=allSummaries.findIndex(function(x){return x.id===pendingApproveId;});
-    if(idx!==-1)allSummaries[idx].status='sent';
-    closeModal();renderSummaries();showToast('Email sent successfully!');
-  }catch(err){
-    debug('Send error: '+JSON.stringify(err));
-    showToast('Failed to send. Check debug log.');
-    btn.disabled=false;btn.textContent='Send this email →';
+    if (res.error) throw new Error(res.error.message);
+
+    var summary = res.data;
+    var studentName = summary.students ? summary.students.name : 'Student';
+    var tutorName = summary.tutors ? summary.tutors.name : currentTutor.name;
+    var d = new Date(date + 'T12:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // Send notification email to owner via Netlify function
+    await fetch('/.netlify/functions/notify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: summary.id,
+        studentName: studentName,
+        tutorName: tutorName,
+        sessionDate: d,
+        topics: topics,
+        progress: progress,
+        homework: homework,
+        siteUrl: window.location.origin
+      })
+    });
+
+    // Clear form
+    document.getElementById('f-student').value = '';
+    document.getElementById('f-topics').value = '';
+    document.getElementById('f-progress').value = '';
+    document.getElementById('f-homework').value = '';
+
+    var bar = document.getElementById('success-bar');
+    bar.classList.add('show');
+    setTimeout(function() { bar.classList.remove('show'); }, 6000);
+    showToast('Summary submitted!');
+
+  } catch(e) {
+    showToast('Error: ' + e.message);
   }
+
+  btn.disabled = false;
+  btn.textContent = 'Submit for review →';
 }
 
-async function discardSummary(id){
-  if(!confirm('Discard this summary?'))return;
-  await window.sb.from('summaries').delete().eq('id',id);
-  allSummaries=allSummaries.filter(function(x){return x.id!==id;});
-  renderSummaries();showToast('Summary discarded');
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 3000);
 }
-
-function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},3000);}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
 </body>
 </html>
