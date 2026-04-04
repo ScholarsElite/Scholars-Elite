@@ -1,0 +1,8 @@
+{
+  "name": "scholars-elite",
+  "version": "1.0.0",
+  "dependencies": {
+    "resend": "^3.2.0",
+    "@supabase/supabase-js": "^2.0.0"
+  }
+}
